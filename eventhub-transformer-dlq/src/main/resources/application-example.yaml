@@ -1,0 +1,42 @@
+server:
+  port: 8095
+spring:
+  application:
+    name: eventhub-transformer-dlq
+  cloud:
+    function:
+      definition: transform;dlq
+    stream:
+      eventhubs:
+        bindings:
+          transform-in-0:
+            consumer:
+              track-last-enqueued-event-properties: true
+              checkpoint:
+                mode: MANUAL
+      binders:
+        my-default-binder:
+          type: eventhubs
+          default-candidate: true
+          environment:
+            spring:
+              cloud:
+                azure:
+                  eventhubs:
+                    connection-string: "[connection-string]"
+                    processor:
+                      checkpoint-store:
+                        client:
+                          maximum-connection-pool-size: 500
+                        create-container-if-not-exists: true
+                        container-name: "[container-name]"
+                        account-name: "[account-name]"
+                        account-key: "[account-key]"
+      bindings:
+        transform-in-0:
+          destination: "[destination]"
+          group: "[group]"
+        transform-out-0:
+          destination: "[destination]"
+        dlq-out-0:
+          destination: "[destination]"

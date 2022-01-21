@@ -1,0 +1,24 @@
+server:
+  port: 8091
+spring:
+  application:
+    name: eventhub-producer
+  cloud:
+    function:
+      definition: produce
+    stream:
+      poller:
+        fixed-delay: 500
+      binders:
+        my-default-binder:
+          type: eventhubs
+          default-candidate: true
+          environment:
+            spring:
+              cloud:
+                azure:
+                  eventhubs:
+                    connection-string: "[connection-string]"
+      bindings:
+        produce-out-0:
+          destination: "[destination]"
