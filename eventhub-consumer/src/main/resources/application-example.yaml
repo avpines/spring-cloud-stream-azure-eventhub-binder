@@ -7,35 +7,19 @@ spring:
     function:
       definition: consume
     stream:
-      eventhubs:
-        bindings:
-          consume-in-0:
-            consumer:
-              track-last-enqueued-event-properties: true
       binders:
         my-default-binder:
-          type: eventhubs
+          type: eventhub
           environment:
             spring:
               cloud:
                 azure:
-                  eventhubs:
+                  eventhub:
                     connection-string: "[connection-string]"
-                    processor:
-                      checkpoint-store:
-                        client:
-                          maximum-connection-pool-size: 500
-                        create-container-if-not-exists: true
-                        container-name: "[container-name]"
-                        account-name: "[account-name]"
-                        account-key: "[account-key]"
+                    checkpoint-access-key: "[account-key]"
+                    checkpoint-storage-account: "[account-name]"
       bindings:
         consume-in-0:
           destination: "[destination]"
           group: "[group]"
-
-
-
-
-
 

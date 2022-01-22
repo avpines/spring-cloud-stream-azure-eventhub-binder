@@ -11,13 +11,12 @@ spring:
         fixed-delay: 500
       binders:
         my-default-binder:
-          type: eventhubs
-          default-candidate: true
+          type: eventhub
           environment:
             spring:
               cloud:
                 azure:
-                  eventhubs:
+                  eventhub:
                     connection-string: "[connection-string]"
       bindings:
         produce-out-0:

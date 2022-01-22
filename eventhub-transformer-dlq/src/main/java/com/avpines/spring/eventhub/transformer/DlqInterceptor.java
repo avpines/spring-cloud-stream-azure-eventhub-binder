@@ -1,8 +1,8 @@
 package com.avpines.spring.eventhub.transformer;
 
-import static com.azure.spring.messaging.AzureHeaders.CHECKPOINTER;
+import static com.azure.spring.integration.core.AzureHeaders.CHECKPOINTER;
 
-import com.azure.spring.messaging.checkpoint.Checkpointer;
+import com.azure.spring.integration.core.api.reactor.Checkpointer;
 import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
