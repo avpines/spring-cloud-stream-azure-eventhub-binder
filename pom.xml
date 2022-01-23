@@ -20,7 +20,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <azure-spring-cloud.version>4.0.0-beta.3</azure-spring-cloud.version>
     <spring-cloud.version>2021.0.0</spring-cloud.version>
-    <spring-boot.version>2.6.2</spring-boot.version>
+    <spring-boot.version>2.6.3</spring-boot.version>
     <jetbrains.annotations.version>22.0.0</jetbrains.annotations.version>
     <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
     <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
@@ -182,6 +182,7 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>${spring-boot.version}</version>
       </plugin>
     </plugins>
   </build>
