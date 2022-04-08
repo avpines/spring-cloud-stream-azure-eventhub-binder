@@ -14,6 +14,7 @@
     <module>eventhub-producer</module>
     <module>eventhub-transformer-dlq</module>
     <module>eventhub-consumer</module>
+    <module>eventhub-transformer-internal-client</module>
   </modules>
 
   <properties>
