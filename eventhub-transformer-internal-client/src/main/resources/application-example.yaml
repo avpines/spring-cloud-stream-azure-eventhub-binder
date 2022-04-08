@@ -1,0 +1,36 @@
+server:
+  port: 8095
+spring:
+  application:
+    name: eventhub-transformer-internal-client
+  cloud:
+    function:
+      definition: transform
+    stream:
+      eventhubs:
+        bindings:
+          transform-in-0:
+            consumer:
+              track-last-enqueued-event-properties: true
+      binders:
+        my-default-binder:
+          type: eventhubs
+          default-candidate: true
+          environment:
+            spring:
+              cloud:
+                azure:
+                  eventhubs:
+                    connection-string: "[connection-string]"
+                    processor:
+                      checkpoint-store:
+                        create-container-if-not-exists: true
+                        container-name: "[container-name]"
+                        account-name: "[account-name]"
+                        account-key: "[account-key]"
+      bindings:
+        transform-in-0:
+          destination: "[destination]"
+          group: "[group]"
+        transform-out-0:
+          destination: "[destination]"
