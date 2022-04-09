@@ -23,8 +23,6 @@ spring:
                     connection-string: "[connection-string]"
                     processor:
                       checkpoint-store:
-                        client:
-                          maximum-connection-pool-size: 500
                         create-container-if-not-exists: true
                         container-name: "[container-name]"
                         account-name: "[account-name]"

@@ -15,26 +15,14 @@ import org.springframework.scheduling.annotation.Scheduled;
 @EnableScheduling
 public class EventHubConsumer {
 
-  private static final Random RND = new Random();
-
   private final AtomicInteger counter = new AtomicInteger();
 
   @Bean
   public Consumer<Message<String>> consume() {
     return message -> {
       counter.incrementAndGet();
-      simulateHardWork(10, 300);
       LOG.info("Consumed '{}'", message.getPayload());
     };
-  }
-
-  @SuppressWarnings("SameParameterValue")
-  private void simulateHardWork(int minDelay, int maxDelay) {
-    try {
-      Thread.sleep(RND.nextInt(maxDelay - minDelay) + minDelay);
-    } catch (InterruptedException e) {
-      LOG.info("Thread interrupted", e);
-    }
   }
 
   @Scheduled(cron = "*/15 * * * * *")
