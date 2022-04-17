@@ -1,4 +1,4 @@
-#EventHubs Producer
+# EventHubs Producer
 
 This example contains an EventHubs producer, used to produce messages of type 
 `com.avpines.spring.messaging.SimpleEvent` either by a given interval or by exposing a REST endpoint
