@@ -9,24 +9,17 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>eventhub-consumer</artifactId>
+  <artifactId>eventhub-metrics</artifactId>
 
-  <profiles>
-    <profile>
-      <id>metrics</id>
-      <dependencies>
-        <dependency>
-          <groupId>com.avpines</groupId>
-          <artifactId>eventhub-metrics</artifactId>
-        </dependency>
-      </dependencies>
-    </profile>
-  </profiles>
+  <properties>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+  </properties>
 
   <dependencies>
     <dependency>
       <groupId>com.avpines</groupId>
-      <artifactId>event-model</artifactId>
+      <artifactId>dynamic-actuator-meters</artifactId>
     </dependency>
   </dependencies>
 

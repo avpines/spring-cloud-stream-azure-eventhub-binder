@@ -1,6 +1,7 @@
 package com.avpines.spring.eventhub.transformer;
 
 import com.avpines.spring.messaging.SimpleEvent;
+import io.micrometer.core.instrument.logging.LoggingMeterRegistry;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -20,6 +21,11 @@ import reactor.core.publisher.Flux;
 @Configuration
 @EnableScheduling
 public class EventHubTransformerDlq {
+
+  @Bean
+  LoggingMeterRegistry loggingMeterRegistry() {
+    return new LoggingMeterRegistry();
+  }
 
   @Bean
   Function<Message<SimpleEvent>, Message<SimpleEvent>> transform() {

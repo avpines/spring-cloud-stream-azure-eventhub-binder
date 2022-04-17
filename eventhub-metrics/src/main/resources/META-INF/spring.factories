@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.avpines.spring.eventhub.metric.config.EventHubMetricsAutoConfiguration

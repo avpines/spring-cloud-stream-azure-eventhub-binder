@@ -16,6 +16,18 @@
     <maven.compiler.target>11</maven.compiler.target>
   </properties>
 
+  <profiles>
+    <profile>
+      <id>metrics</id>
+      <dependencies>
+        <dependency>
+          <groupId>com.avpines</groupId>
+          <artifactId>eventhub-metrics</artifactId>
+        </dependency>
+      </dependencies>
+    </profile>
+  </profiles>
+
   <dependencies>
     <dependency>
       <groupId>com.avpines</groupId>

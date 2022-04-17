@@ -1,6 +1,6 @@
 package com.avpines.spring.eventhub.consumer;
 
-import java.util.Random;
+import io.micrometer.core.instrument.logging.LoggingMeterRegistry;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import lombok.extern.slf4j.Slf4j;
@@ -18,10 +18,15 @@ public class EventHubConsumer {
   private final AtomicInteger counter = new AtomicInteger();
 
   @Bean
+  LoggingMeterRegistry loggingMeterRegistry() {
+    return new LoggingMeterRegistry();
+  }
+
+  @Bean
   public Consumer<Message<String>> consume() {
     return message -> {
       counter.incrementAndGet();
-      LOG.info("Consumed '{}'", message.getPayload());
+      LOG.debug("Consumed '{}'", message.getPayload());
     };
   }
 
